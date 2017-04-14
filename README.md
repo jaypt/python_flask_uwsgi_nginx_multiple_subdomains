@@ -1,0 +1,2 @@
+# python_flask_uwsgi_nginx_multiple_subdomains
+2 subdomains deployed in microservices fashion
