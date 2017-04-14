@@ -1,0 +1,24 @@
+web1:
+  build: ./web1
+  expose:
+    - "8000"
+  volumes_from:
+    - nginx
+  command: /usr/local/bin/uwsgi --emperor /etc/uwsgi/emperor.ini
+
+web2:
+  build: ./web2
+  expose:
+    - "9000"
+  volumes_from:
+    - nginx
+  command: /usr/local/bin/uwsgi --emperor /etc/uwsgi/emperor.ini
+
+nginx:
+  build: ./nginx/
+  ports:
+    - "80:80"
+  volumes:
+    - /www/static
+  volumes:
+    - /tmp/sockets
